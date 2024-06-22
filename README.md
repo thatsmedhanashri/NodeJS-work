@@ -47,3 +47,8 @@ if(pathname === '/product'){
     const output = replaceTemplate(tempProduct, product)
     res.end(output)
 }
+
+## Modules
+Every file in NodeJS is considered as module. Like index.js is a module.
+We should import all modules first and then we should write our functions.
+We should first import core modules which are required and then custom modules if any.
