@@ -33,3 +33,17 @@ res.end("<h1>Page not found!</h1>")
 
 const data = fs.readFileSync(`${__dirname}/dev-data/data.json`, 'utf-8')
 __dirname gives working directory name
+
+Each file in directory will get seperate call on server. So if we are writing template then we can write inline css to reduce server hits.
+
+## url module
+const url = require('url')
+const {query, pathname} = url.parse(req.url, true)
+if(pathname === '/product'){
+    res.writeHead(200, {
+        'Content-Type': 'text/html'
+    })
+    const product = dataObj[query.id]
+    const output = replaceTemplate(tempProduct, product)
+    res.end(output)
+}
